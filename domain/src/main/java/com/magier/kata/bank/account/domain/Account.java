@@ -1,6 +1,8 @@
 package com.magier.kata.bank.account.domain;
 
+import java.security.InvalidParameterException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 /**
  * Created by Dan on 25/06/2017.
@@ -29,7 +31,12 @@ public class Account {
         System.out.println("Balance account is " + balance + "€ since " + lastOperationdate);
     }
 
-    public void makeADeposit(int depositAmount, LocalDate operationDate) {
+    public void makeADeposit(Integer depositAmount, LocalDate operationDate) throws IllegalArgumentException {
+        Optional<Integer> depositAmountOpt = Optional.ofNullable(depositAmount);
+        depositAmountOpt.orElseThrow(IllegalArgumentException::new);
+        Optional<LocalDate> operationDateOpt = Optional.ofNullable(operationDate);
+        operationDateOpt.orElseThrow(IllegalArgumentException::new);
+
         balance += depositAmount;
         lastOperationdate = operationDate;
     }
