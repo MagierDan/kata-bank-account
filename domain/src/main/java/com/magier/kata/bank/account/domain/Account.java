@@ -26,7 +26,7 @@ public class Account {
     }
 
     public void showBalance() {
-        System.out.println("Balance account is " + balance + " since " + lastOperationdate);
+        System.out.println("Balance account is " + balance + "€ since " + lastOperationdate);
     }
 
     public void makeADeposit(int depositAmount, LocalDate operationDate) {
