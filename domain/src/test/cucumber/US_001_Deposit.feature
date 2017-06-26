@@ -1,4 +1,3 @@
-#@wip
 Feature: As a bank client, in order to save money, I want to make a deposit in my account
 
   Scenario: Making a deposit of 100€ on a new bank account created the 01/06/2017

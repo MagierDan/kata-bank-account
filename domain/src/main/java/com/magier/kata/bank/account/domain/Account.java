@@ -40,4 +40,14 @@ public class Account {
         balance += depositAmount;
         lastOperationdate = operationDate;
     }
+
+    public void makeAWithdarwal(Integer withdrawalAmount, LocalDate localDateFromString) {
+        Optional<Integer> depositAmountOpt = Optional.ofNullable(withdrawalAmount);
+        depositAmountOpt.orElseThrow(IllegalArgumentException::new);
+        Optional<LocalDate> operationDateOpt = Optional.ofNullable(localDateFromString);
+        operationDateOpt.orElseThrow(IllegalArgumentException::new);
+
+        balance -= withdrawalAmount;
+        lastOperationdate = localDateFromString;
+    }
 }
