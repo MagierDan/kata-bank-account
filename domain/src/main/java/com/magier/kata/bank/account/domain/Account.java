@@ -1,12 +1,8 @@
 package com.magier.kata.bank.account.domain;
 
-import java.security.InvalidParameterException;
 import java.time.LocalDate;
 import java.util.Optional;
 
-/**
- * Created by Dan on 25/06/2017.
- */
 public class Account {
     private int balance;
     private LocalDate lastOperationdate;
@@ -32,22 +28,22 @@ public class Account {
     }
 
     public void makeADeposit(Integer depositAmount, LocalDate operationDate) throws IllegalArgumentException {
-        Optional<Integer> depositAmountOpt = Optional.ofNullable(depositAmount);
-        depositAmountOpt.orElseThrow(IllegalArgumentException::new);
+        executeOperation(depositAmount, operationDate);
+    }
+
+    public void makeAWithdarwal(Integer withdrawalAmount, LocalDate operationDate) {
+        Optional<Integer> withdrawalAmountOpt = Optional.ofNullable(withdrawalAmount);
+        withdrawalAmountOpt.orElseThrow(IllegalArgumentException::new);
+        executeOperation(-withdrawalAmount, operationDate);
+    }
+
+    private void executeOperation(Integer amount, LocalDate operationDate) {
+        Optional<Integer> amountOpt = Optional.ofNullable(amount);
+        amountOpt.orElseThrow(IllegalArgumentException::new);
         Optional<LocalDate> operationDateOpt = Optional.ofNullable(operationDate);
         operationDateOpt.orElseThrow(IllegalArgumentException::new);
 
-        balance += depositAmount;
+        balance += amount;
         lastOperationdate = operationDate;
-    }
-
-    public void makeAWithdarwal(Integer withdrawalAmount, LocalDate localDateFromString) {
-        Optional<Integer> depositAmountOpt = Optional.ofNullable(withdrawalAmount);
-        depositAmountOpt.orElseThrow(IllegalArgumentException::new);
-        Optional<LocalDate> operationDateOpt = Optional.ofNullable(localDateFromString);
-        operationDateOpt.orElseThrow(IllegalArgumentException::new);
-
-        balance -= withdrawalAmount;
-        lastOperationdate = localDateFromString;
     }
 }
