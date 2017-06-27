@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by Dan on 25/06/2017.
  */
-public class USDepositAndWithdrawalStepsDefinition {
+public class AccountStepsDefinition {
     protected Account account = new Account();
 
     @Given("^a bank account with a balance of (\\d+) € the \"([^\"]*)\"$")
@@ -36,6 +36,24 @@ public class USDepositAndWithdrawalStepsDefinition {
     @Then("^the customer's bank account balance is (\\d+)€$")
     public void the_customer_s_bank_account_balance_is_€(int expectedAccountBalance) throws Throwable {
         assertThat(expectedAccountBalance).isEqualTo(account.getBalance());
+    }
+
+    @Given("^an account without any operation opened the \"([^\"]*)\"$")
+    public void an_account_without_any_operation_opened_the(String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^the system display the operations history$")
+    public void the_system_display_the_operations_history() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^the customer should see$")
+    public void the_customer_should_see(String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
     /*###########################################################################*/
