@@ -2,7 +2,7 @@ Feature: As a bank client, in order to check my operations, I want to see the hi
 
   Scenario: Displaying an empty history
     Given an account without any operation opened the "12/07/2016"
-    When the system display the operations history
+    When the system display the account bank statement
     Then the customer should see
       """
       operation  || date       || amount    || balance
@@ -11,7 +11,7 @@ Feature: As a bank client, in order to check my operations, I want to see the hi
   Scenario: Displaying a history bank account of one record
     Given an account without any operation opened the "12/07/2016"
     And the customer make a deposit of 300€ the "13/07/2016"
-    When the system display the operations history
+    When the system display the account bank statement
     Then the customer should see
       """
       operation  || date       || amount    || balance
@@ -24,7 +24,7 @@ Feature: As a bank client, in order to check my operations, I want to see the hi
     And the customer make a deposit of 1500€ the "14/07/2016"
     And the customer make a withdrawal of 500€ the "20/07/2016"
     And the customer make a deposit of 200€ the "25/07/2016"
-    When the system display the operations history
+    When the system display the account bank statement
     Then the customer should see
       """
       operation  || date       || amount    || balance
