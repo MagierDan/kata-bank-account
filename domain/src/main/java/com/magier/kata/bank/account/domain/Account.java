@@ -1,6 +1,7 @@
 package com.magier.kata.bank.account.domain;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -44,10 +45,20 @@ public class Account {
         operation.setBalanceAfterOperation(balance);
     }
 
-    public void displaySatement() {
-        System.out.println("Operation  || Date       || Amount    || Balance");
+    public String getStatement() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Operation || Date || Amount || Balance");
         operations.forEach(operation -> {
-            System.out.println(operation.getDate() + "||" + operation.getType() + "||" + operation.getAmount() + "||" + operation.getBalanceAfterOperation());
+            sb.append(System.lineSeparator())
+                    .append(operation.getType().getLabel())
+                    .append(" || ")
+                    .append(operation.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))
+                    .append(" || ")
+                    .append(operation.getAmount()).append(" || ")
+                    .append(operation.getBalanceAfterOperation());
         });
+
+        return sb.toString();
+
     }
 }

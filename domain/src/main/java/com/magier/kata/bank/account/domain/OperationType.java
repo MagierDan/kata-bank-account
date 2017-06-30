@@ -5,7 +5,7 @@ package com.magier.kata.bank.account.domain;
  */
 public enum OperationType {
 
-    DEPOSIT("Deposit"), WITHDRAWAL("Withdrawal"), CREATION("");
+    DEPOSIT("Deposit"), WITHDRAWAL("Withdrawal"), CREATION("Deposit");
 
     private final String label;
 

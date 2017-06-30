@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/cucumber",
         glue = {"com.magier.kata.bank.account.domain"},
-        format = {"json:target/cucumber/wikipedia.json", "html:target/cucumber/wikipedia.html", "pretty"},
-        tags = {"~@wip"}
+        format = {"json:target/cucumber/wikipedia.json", "html:target/cucumber/wikipedia.html", "pretty"}
+        //, tags = {"@wip"}
 )
 public class BDDRunnerTest {
 }

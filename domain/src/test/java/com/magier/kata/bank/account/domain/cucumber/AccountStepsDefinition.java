@@ -3,7 +3,6 @@ package com.magier.kata.bank.account.domain.cucumber;
 import com.magier.kata.bank.account.domain.Account;
 import com.magier.kata.bank.account.domain.Operation;
 import com.magier.kata.bank.account.domain.OperationType;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,7 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Created by Dan on 25/06/2017.
  */
 public class AccountStepsDefinition {
-    protected Account account;
+    Account account;
+    String statement;
 
     @Given("^a bank account with a balance of (\\d+) € the \"([^\"]*)\"$")
     public void a_bank_account_with_a_balance_of_€_the(int accountBalance, String date) {
@@ -45,14 +45,13 @@ public class AccountStepsDefinition {
     }
 
     @When("^the system display the account bank statement$")
-    public void the_system_display_the_account_bank_statement() throws Throwable {
-        account.displaySatement();
+    public void the_system_display_the_account_bank_statement() {
+        statement = account.getStatement();
     }
 
     @Then("^the customer should see$")
-    public void the_customer_should_see(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void the_customer_should_see(String expectedStatement) throws Throwable {
+        assertThat(statement).isEqualTo(expectedStatement);
     }
 
     /*###########################################################################*/
