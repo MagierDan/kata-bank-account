@@ -10,6 +10,16 @@ import static org.assertj.core.api.Assertions.*;
 public class AccountTest {
 
     @Test
+    public void executeOperation_should_return_an_invalid_argument_exception_if_operation_is_null(){
+        Account account = new Account();
+        account.setBalance(150);
+        account.setLastOperationDate(LocalDate.of(2017, 01, 3));
+
+        assertThatThrownBy(() -> account.executeOperation(null))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     public void executeOperation_should_return_an_invalid_argument_exception_if_amount_is_null(){
         Account account = new Account();
         account.setBalance(150);

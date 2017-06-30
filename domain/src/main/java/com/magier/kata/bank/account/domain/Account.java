@@ -51,15 +51,6 @@ public class Account {
         Optional<Operation> operationOpt = Optional.ofNullable(operation);
         operationOpt.orElseThrow(IllegalArgumentException::new);
 
-        Optional<Integer> amountOpt = Optional.ofNullable(operation.getAmount());
-        amountOpt.orElseThrow(IllegalArgumentException::new);
-
-        Optional<LocalDate> operationDateOpt = Optional.ofNullable(operation.getDate());
-        operationDateOpt.orElseThrow(IllegalArgumentException::new);
-
-        Optional<OperationType> operationTypeOpt = Optional.ofNullable(operation.getType());
-        operationTypeOpt.orElseThrow(IllegalArgumentException::new);
-
         int amount = operation.getAmount();
         if (OperationType.WITHDRAWAL == operation.getType()) {
             amount = -operation.getAmount();
