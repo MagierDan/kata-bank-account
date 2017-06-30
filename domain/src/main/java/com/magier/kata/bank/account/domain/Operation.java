@@ -7,8 +7,9 @@ public class Operation {
     private final LocalDate date;
     private final Integer amount;
     private final OperationType type;
+    private Integer balanceAfterOperation;
 
-    public Operation(LocalDate operationDate, Integer amount, OperationType operationType) {
+    public Operation(final LocalDate operationDate, final Integer amount, final OperationType operationType) {
         controlOperationValues(operationDate, amount, operationType);
         this.date = operationDate;
         this.amount = amount;
@@ -26,15 +27,23 @@ public class Operation {
         operationTypeOpt.orElseThrow(IllegalArgumentException::new);
     }
 
-    public LocalDate getDate() {
+    LocalDate getDate() {
         return date;
     }
 
-    public Integer getAmount() {
+    Integer getAmount() {
         return amount;
     }
 
-    public OperationType getType() {
+    OperationType getType() {
         return type;
+    }
+
+    Integer getBalanceAfterOperation() {
+        return balanceAfterOperation;
+    }
+
+    void setBalanceAfterOperation(final Integer balanceAfterOperation) {
+        this.balanceAfterOperation = balanceAfterOperation;
     }
 }

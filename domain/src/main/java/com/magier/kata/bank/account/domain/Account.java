@@ -7,27 +7,12 @@ import java.util.Optional;
 
 public class Account {
     private int balance;
-    private final LocalDate creatioDate;
     private LocalDate lastOperationDate;
 
     private List<Operation> operations = new LinkedList<>();
 
-    public Account() {
-        creatioDate = LocalDate.now();
-        balance = 0;
-    }
-
-    public Account(final LocalDate creatioDate) {
-        this.creatioDate = creatioDate;
-        balance = 0;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-
-    public LocalDate getCreatioDate() {
-        return creatioDate;
+    public Account(final Operation operation) {
+        executeOperation(operation);
     }
 
     public int getBalance() {
@@ -35,29 +20,34 @@ public class Account {
         return balance;
     }
 
-    public void setLastOperationDate(LocalDate lastOperationDate) {
-        this.lastOperationDate = lastOperationDate;
-    }
-
-    public LocalDate getLastOperationDate() {
-        return lastOperationDate;
-    }
-
-    public void showBalance() {
-        System.out.println("Balance account is " + balance + "€ since " + lastOperationDate);
-    }
-
     public void executeOperation(Operation operation) {
+        checkOperation(operation);
+
+        determineBalance(operation);
+        lastOperationDate = operation.getDate();
+
+        operations.add(0, operation);
+    }
+
+    private void checkOperation(Operation operation) {
         Optional<Operation> operationOpt = Optional.ofNullable(operation);
         operationOpt.orElseThrow(IllegalArgumentException::new);
+    }
 
+    private void determineBalance(Operation operation) {
         int amount = operation.getAmount();
         if (OperationType.WITHDRAWAL == operation.getType()) {
             amount = -operation.getAmount();
         }
         balance += amount;
-        lastOperationDate = operation.getDate();
 
-        operations.add(0, operation);
+        operation.setBalanceAfterOperation(balance);
+    }
+
+    public void displaySatement() {
+        System.out.println("Operation  || Date       || Amount    || Balance");
+        operations.forEach(operation -> {
+            System.out.println(operation.getDate() + "||" + operation.getType() + "||" + operation.getAmount() + "||" + operation.getBalanceAfterOperation());
+        });
     }
 }

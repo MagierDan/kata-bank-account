@@ -17,12 +17,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Created by Dan on 25/06/2017.
  */
 public class AccountStepsDefinition {
-    protected Account account = new Account();
+    protected Account account;
 
     @Given("^a bank account with a balance of (\\d+) € the \"([^\"]*)\"$")
     public void a_bank_account_with_a_balance_of_€_the(int accountBalance, String date) {
-        account.setBalance(accountBalance);
-        account.setLastOperationDate(getLocalDateFromString(date));
+        account = new Account(new Operation(getLocalDateFromString(date), accountBalance, OperationType.CREATION));
     }
 
     @When("^the customer make a deposit of (\\d+)€ the \"([^\"]*)\"$")
@@ -40,15 +39,14 @@ public class AccountStepsDefinition {
         assertThat(expectedAccountBalance).isEqualTo(account.getBalance());
     }
 
-    @Given("^an account without any operation opened the \"([^\"]*)\"$")
-    public void an_account_without_any_operation_opened_the(String creationDate) throws Throwable {
-        account = new Account(getLocalDateFromString(creationDate));
+    @Given("^an account opened the \"([^\"]*)\" with a deposit of (\\d+)€$")
+    public void an_account_opened_the_with_a_deposit_of_€(String creationDate, int depositAmount) {
+        account = new Account(new Operation(getLocalDateFromString(creationDate), depositAmount, OperationType.CREATION));
     }
 
     @When("^the system display the account bank statement$")
     public void the_system_display_the_account_bank_statement() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        account.displaySatement();
     }
 
     @Then("^the customer should see$")
