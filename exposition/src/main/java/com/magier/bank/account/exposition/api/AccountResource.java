@@ -12,9 +12,9 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping(value = "/api")
-public class account {
+public class AccountResource {
 
-    @RequestMapping(value = "/account/execute-operation", method = RequestMethod.GET)
+    @RequestMapping(value = "/account:execute-operation", method = RequestMethod.POST)
     public String executeOperation(
             @RequestParam(value = "operationDate") @DateTimeFormat(pattern = "dd/MM/yyyy") final LocalDate operationDate,
             @RequestParam(value = "amount") final Integer amount,
