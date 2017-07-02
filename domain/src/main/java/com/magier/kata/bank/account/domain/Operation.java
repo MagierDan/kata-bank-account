@@ -46,4 +46,13 @@ public class Operation {
     void setBalanceAfterOperation(final Integer balanceAfterOperation) {
         this.balanceAfterOperation = balanceAfterOperation;
     }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "date=" + date +
+                ", amount=" + amount +
+                ", type=" + type +
+                '}';
+    }
 }
