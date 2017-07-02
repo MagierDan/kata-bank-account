@@ -55,8 +55,7 @@ public class AccountStepsDefinition {
     }
 
     /*###########################################################################*/
-    protected LocalDate getLocalDateFromString(String date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return LocalDate.parse(date, formatter);
+    LocalDate getLocalDateFromString(String date) {
+        return LocalDate.parse(date, Account.DATE_TIME_FORMATTER);
     }
 }

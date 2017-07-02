@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class Account {
+    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private int balance;
     private LocalDate lastOperationDate;
 
@@ -52,13 +53,12 @@ public class Account {
             sb.append(System.lineSeparator())
                     .append(operation.getType().getLabel())
                     .append(" || ")
-                    .append(operation.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))
+                    .append(operation.getDate().format(DATE_TIME_FORMATTER))
                     .append(" || ")
                     .append(operation.getAmount()).append(" || ")
                     .append(operation.getBalanceAfterOperation());
         });
 
         return sb.toString();
-
     }
 }
