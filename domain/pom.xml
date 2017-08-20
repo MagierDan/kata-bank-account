@@ -13,14 +13,7 @@
 
     <artifactId>domain</artifactId>
 
-    <properties>
-        <jdk.version>1.8</jdk.version>
-        <junit.version>4.12</junit.version>
-        <assertJ.version>3.8.0</assertJ.version>
-        <cucumber.version>1.2.5</cucumber.version>
-    </properties>
     <dependencies>
-
         <!-- Tests -->
         <dependency>
             <groupId>junit</groupId>
@@ -35,6 +28,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
@@ -46,13 +45,6 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.10.19</version>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
     <build>
         <plugins>

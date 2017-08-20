@@ -11,6 +11,21 @@
 
     <modules>
         <module>domain</module>
+        <module>infrastructure</module>
         <module>exposition</module>
     </modules>
+
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <junit.version>4.12</junit.version>
+        <assertJ.version>3.8.0</assertJ.version>
+        <cucumber.version>1.2.5</cucumber.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+
+        </dependencies>
+    </dependencyManagement>
 </project>
