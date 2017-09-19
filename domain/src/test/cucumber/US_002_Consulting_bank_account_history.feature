@@ -1,4 +1,4 @@
-Feature: As a bank client, in order to check my operations, I want to see the history (operation, date, amount, balance) of my operations
+Feature: As a bank client, in order to check my operations, I want to see the history (operation, date, amount, balance) of my operations.
 
   Scenario: Displaying a newly created account history
     Given an account opened the "12/07/2016" with a deposit of 0€

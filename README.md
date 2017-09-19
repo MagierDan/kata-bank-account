@@ -1,41 +1,26 @@
 **_Bank account kata_**
 
-Think of your personal bank account experience
-
-When in doubt, go for the simplest solution
+Think of your personal bank account experience. When in doubt, go for the simplest solution.
  
 **Requirements**
 
-Deposit and Withdrawal
+- Deposit and Withdrawal
 
-Account statement (date, amount, balance)
+- Account statement (date, amount, balance)
 
-Statement printing
+- Statement printing
  
 **User Stories**
 
 _US 1_:
 
-In order to save money
-
-As a bank client
-
-I want to make a deposit in my account
+As a bank client, in order to save or retrieve my money, I want to make a deposit or withdrawal operations on my account.
  
 
 _US 2_:
 
-In order to retrieve some or all of my savings
-
-As a bank client
-
-I want to make a withdrawal from my account
-
+As a bank client, in order to check my operations, I want to see the history (operation, date, amount, balance) of my operations.
 
 _US 3_:
 
-In order to check my operations
-
-As a bank client
-
-I want to see the history (operation, date, amount, balance)  of my operations
+As a bank client, in order to check my operations, I want to see the balance of my operations.
