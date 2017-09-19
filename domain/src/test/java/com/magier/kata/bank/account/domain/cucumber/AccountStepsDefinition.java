@@ -1,21 +1,16 @@
 package com.magier.kata.bank.account.domain.cucumber;
 
-import com.magier.kata.bank.account.domain.Account;
-import com.magier.kata.bank.account.domain.Operation;
-import com.magier.kata.bank.account.domain.OperationRepository;
-import com.magier.kata.bank.account.domain.OperationType;
+import com.magier.kata.bank.account.domain.account.Account;
+import com.magier.kata.bank.account.domain.operation.Operation;
+import com.magier.kata.bank.account.domain.operation.OperationRepository;
+import com.magier.kata.bank.account.domain.operation.OperationType;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

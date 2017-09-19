@@ -1,5 +1,9 @@
 package com.magier.kata.bank.account.domain;
 
+import com.magier.kata.bank.account.domain.account.Account;
+import com.magier.kata.bank.account.domain.operation.Operation;
+import com.magier.kata.bank.account.domain.operation.OperationRepository;
+import com.magier.kata.bank.account.domain.operation.OperationType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

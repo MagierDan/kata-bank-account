@@ -1,4 +1,8 @@
-package com.magier.kata.bank.account.domain;
+package com.magier.kata.bank.account.domain.account;
+
+import com.magier.kata.bank.account.domain.operation.Operation;
+import com.magier.kata.bank.account.domain.operation.OperationRepository;
+import com.magier.kata.bank.account.domain.operation.OperationType;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -10,25 +14,16 @@ import java.util.UUID;
 
 public class Account {
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     private int balance;
     private LocalDate lastOperationDate;
     private final String accountNumber;
+    private List<Operation> operations = new LinkedList<>();
 
     private OperationRepository operationRepository;
 
-    private List<Operation> operations = new LinkedList<>();
-
     public Account() {
         this.accountNumber = UUID.randomUUID().toString();
-    }
-
-    public Account(final OperationRepository operationRepository) {
-        this.operationRepository = operationRepository;
-        this.accountNumber = UUID.randomUUID().toString();
-    }
-
-    public int getBalance() {
-        return balance;
     }
 
     public void executeOperation(Operation operation) {
@@ -73,11 +68,11 @@ public class Account {
         return sb.toString();
     }
 
-    public OperationRepository getOperationRepository() {
-        return operationRepository;
-    }
-
     public void setOperationRepository(OperationRepository operationRepository) {
         this.operationRepository = operationRepository;
+    }
+
+    public int getBalance() {
+        return balance;
     }
 }

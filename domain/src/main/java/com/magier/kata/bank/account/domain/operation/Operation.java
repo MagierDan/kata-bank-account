@@ -1,4 +1,4 @@
-package com.magier.kata.bank.account.domain;
+package com.magier.kata.bank.account.domain.operation;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -27,23 +27,23 @@ public class Operation {
         operationTypeOpt.orElseThrow(IllegalArgumentException::new);
     }
 
-    LocalDate getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    Integer getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    OperationType getType() {
+    public OperationType getType() {
         return type;
     }
 
-    Integer getBalanceAfterOperation() {
+    public Integer getBalanceAfterOperation() {
         return balanceAfterOperation;
     }
 
-    void setBalanceAfterOperation(final Integer balanceAfterOperation) {
+    public void setBalanceAfterOperation(final Integer balanceAfterOperation) {
         this.balanceAfterOperation = balanceAfterOperation;
     }
 

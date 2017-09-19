@@ -1,4 +1,4 @@
-package com.magier.kata.bank.account.domain;
+package com.magier.kata.bank.account.domain.operation;
 
 /**
  * Created by Dan on 30/06/2017.
